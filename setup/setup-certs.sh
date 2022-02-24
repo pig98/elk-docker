@@ -17,7 +17,7 @@ find $OUTPUT_DIR -mindepth 1 -type d -exec rm -rf -- {} +
 rm -f $ZIP_FILE
 
 printf "Generating... \n"
-bin/elasticsearch-certutil cert --silent --pem --in /setup/instances.yml -out $ZIP_FILE &> /dev/null
+bin/elasticsearch-certutil cert --silent --self-signed --pem --in /setup/instances.yml -out $ZIP_FILE &> /dev/null
 
 printf "Unzipping Certifications... \n"
 unzip -qq $ZIP_FILE -d $OUTPUT_DIR;
